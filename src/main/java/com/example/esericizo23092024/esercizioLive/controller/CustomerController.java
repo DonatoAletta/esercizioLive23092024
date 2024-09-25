@@ -1,6 +1,8 @@
 package com.example.esericizo23092024.esercizioLive.controller;
 
 import com.example.esericizo23092024.esercizioLive.model.Customer;
+import com.example.esericizo23092024.esercizioLive.services.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,16 +14,18 @@ import java.util.concurrent.atomic.AtomicLong;
 @RequestMapping("/customer")
 public class CustomerController {
 
-    Map<Long, Customer> customerMap = new HashMap<>();
-    AtomicLong customerId = new AtomicLong();
+    @Autowired
+    CustomerService customerService;
+
+
 
     @PostMapping()
     public ResponseEntity<Customer> createNewCustomer(@RequestBody Customer customer){
-        customer.setId(customerId.incrementAndGet());
-        customerMap.put(customer.getId(), customer);
-        return ResponseEntity.ok(customer);
-    }
 
+        Customer newCustomer = customerService.createNewCustomer(customer);
+        return ResponseEntity.ok(newCustomer);
+    }
+/*
     @PatchMapping("/customer-name/{id}")
     public ResponseEntity<?> changeCustomerName(@PathVariable("id") Long id, @RequestParam("name") String name){
         if(customerMap.containsKey(id)){
@@ -36,6 +40,6 @@ public class CustomerController {
     public ResponseEntity<Boolean> deleteCustomer(@PathVariable("id") Long id){
        customerMap.remove(id);
         return ResponseEntity.ok(true);
-    }
+    } */
 
 }
