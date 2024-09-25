@@ -1,6 +1,6 @@
-package com.example.esericizo23092024.esercizioLive.model.dto;
+package com.example.esericizo23092024.esercizioLive.dto;
 
-import com.example.esericizo23092024.esercizioLive.model.Product;
+import com.example.esericizo23092024.esercizioLive.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

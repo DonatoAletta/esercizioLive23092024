@@ -1,13 +1,11 @@
 package com.example.esericizo23092024.esercizioLive.controller;
 
-import com.example.esericizo23092024.esercizioLive.model.Customer;
-import com.example.esericizo23092024.esercizioLive.model.Order;
-import com.example.esericizo23092024.esercizioLive.model.OrderStatusEnum;
-import com.example.esericizo23092024.esercizioLive.model.dto.CreateOrderDTO;
+import com.example.esericizo23092024.esercizioLive.entity.Order;
+import com.example.esericizo23092024.esercizioLive.entity.OrderStatusEnum;
+import com.example.esericizo23092024.esercizioLive.dto.CreateOrderDTO;
 import com.example.esericizo23092024.esercizioLive.services.OrderServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,9 +28,6 @@ public class OrderController {
 
     @PostMapping("customers/{customerId}")
     public ResponseEntity<?> createNewOrder(@PathVariable("customerId") int id, @RequestBody CreateOrderDTO createorderdto){
-
-
-
 
     }
 

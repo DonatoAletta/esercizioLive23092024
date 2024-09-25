@@ -1,7 +1,7 @@
 package com.example.esericizo23092024.esercizioLive.controller;
 
 
-import com.example.esericizo23092024.esercizioLive.model.Product;
+import com.example.esericizo23092024.esercizioLive.entity.Product;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

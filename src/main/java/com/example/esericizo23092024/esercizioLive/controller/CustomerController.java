@@ -1,14 +1,10 @@
 package com.example.esericizo23092024.esercizioLive.controller;
 
-import com.example.esericizo23092024.esercizioLive.model.Customer;
+import com.example.esericizo23092024.esercizioLive.entity.Customer;
 import com.example.esericizo23092024.esercizioLive.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 @RequestMapping("/customer")
@@ -21,7 +17,6 @@ public class CustomerController {
 
     @PostMapping()
     public ResponseEntity<Customer> createNewCustomer(@RequestBody Customer customer){
-
         Customer newCustomer = customerService.createNewCustomer(customer);
         return ResponseEntity.ok(newCustomer);
     }

@@ -1,4 +1,4 @@
-package com.example.esericizo23092024.esercizioLive.model;
+package com.example.esericizo23092024.esercizioLive.entity;
 
 import lombok.*;
 

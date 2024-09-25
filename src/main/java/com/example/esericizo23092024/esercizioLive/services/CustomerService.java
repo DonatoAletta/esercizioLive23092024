@@ -1,21 +1,21 @@
 package com.example.esericizo23092024.esercizioLive.services;
 
-import com.example.esericizo23092024.esercizioLive.model.Customer;
-import org.springframework.http.ResponseEntity;
+import com.example.esericizo23092024.esercizioLive.entity.Customer;
+import com.example.esericizo23092024.esercizioLive.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 
 @Service
 public class CustomerService {
 
-    Map<Long, Customer> customerMap = new HashMap<>();
+    //Map<Long, Customer> customerMap = new HashMap<>();
     AtomicLong customerId = new AtomicLong();
 
+    @Autowired
+    CustomerRepository customerRepository;
 
     public Customer createNewCustomer(Customer customer){
         customer.setId(customerId.incrementAndGet());
@@ -23,12 +23,8 @@ public class CustomerService {
         return customer;
     }
 
- public Customer findByCustomerID (int customerId) throws Exception {
-        Customer c = customerMap.get(customerId);
-        if (c == null) {
-            throw new Exception("Customer not found");
-        }
-        return c;
+ public Customer findByCustomerID (Long customerId) throws Exception {
+        return customerRepository.findById(customerId).orElseThrow(()-> new Exception("Customer not found"));
  }
 
 }

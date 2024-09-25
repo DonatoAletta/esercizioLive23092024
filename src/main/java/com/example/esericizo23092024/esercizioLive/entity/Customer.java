@@ -1,11 +1,20 @@
-package com.example.esericizo23092024.esercizioLive.model;
+package com.example.esericizo23092024.esercizioLive.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
+@Entity
 public class Customer {
+    @Id
     private Long id;
+    //@Column(name="name")
     private String name;
     private String email;
+    @OneToMany(mappedBy = "customer") //collegamento alla tabella degli ordini (foreign key)
     private List<Order> orderList;
 
     public Customer(Long id, String name, String email, List<Order> orderList) {
